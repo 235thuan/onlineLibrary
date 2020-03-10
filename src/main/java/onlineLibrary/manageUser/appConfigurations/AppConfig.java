@@ -37,7 +37,7 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@EnableJpaRepositories("onlineLibrary.manageUser.repository")
+@EnableJpaRepositories("onlineLibrary.manageUser.respositories")
 @ComponentScan("onlineLibrary.manageUser")
 @EnableSpringDataWebSupport
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
@@ -54,6 +54,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         templateResolver.setPrefix("/views/manageUser/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
 
@@ -69,6 +70,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public ViewResolver viewResolver(){
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine());
+        viewResolver.setCharacterEncoding("UTF-8");
         return viewResolver;
     }
     private ApplicationContext applicationContext;
@@ -96,7 +98,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/dataBackEnd?useUnicode=yes&characterEncoding=utf8");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/manageUser?useUnicode=yes&characterEncoding=utf8");
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
         return dataSource;

@@ -46,17 +46,24 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             roles.add(a.getAuthority());
         }
 
-        if (isDba(roles)) {
-            url = "/dba";
-        } else if (isAdmin(roles)) {
+        if (isAdmin(roles)) {
             url = "/admin";
         } else if (isUser(roles)) {
+            url = "/user";
+        } else if (isGuest(roles)) {
             url = "/home";
         } else {
             url = "/accessDenied";
         }
 
         return url;
+    }
+
+    private boolean isGuest(List<String> roles) {
+        if (roles.contains("ROLE_GUEST")) {
+            return true;
+        }
+        return false;
     }
 
     private boolean isUser(List<String> roles) {
@@ -68,13 +75,6 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
     private boolean isAdmin(List<String> roles) {
         if (roles.contains("ROLE_ADMIN")) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isDba(List<String> roles) {
-        if (roles.contains("ROLE_DBA")) {
             return true;
         }
         return false;

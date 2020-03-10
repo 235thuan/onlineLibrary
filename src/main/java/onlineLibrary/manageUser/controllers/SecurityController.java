@@ -1,19 +1,14 @@
 package onlineLibrary.manageUser.controllers;
 
-import org.springframework.security.core.Authentication;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Controller
 public class SecurityController {
     private String getPrincipal(){
@@ -33,10 +28,10 @@ public class SecurityController {
         model.addAttribute("user", getPrincipal());
         return "welcome";
     }
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(ModelMap model) {
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public String userPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "admin";
+        return "user";
     }
 
     //thong bao khong con quyen truy cap trang
@@ -46,10 +41,11 @@ public class SecurityController {
         return "accessDenied";
     }
 
-    @RequestMapping(value = "/dba", method = RequestMethod.GET)
-    public String dbaPage(ModelMap model) {
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String adminPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "dba";
+        return "user";
     }
+
 }
 
