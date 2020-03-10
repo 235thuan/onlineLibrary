@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc781d4b-784e-4bde-8015-588899a088e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/manageUser/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/AppInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/AppInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/CustomSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/CustomSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/SecurityWebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/appConfigurations/SecurityWebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/controllers/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/controllers/SecurityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/onlineLibrary/manageUser/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manageUser/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manageUser/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manageUser/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manageUser/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/manageUser/dba.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/manageUser/user.html" afterDir="false" />
-    </list>
+    <list default="true" id="bc781d4b-784e-4bde-8015-588899a088e3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -288,7 +275,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583729096682</updated>
       <workItem from="1583729105323" duration="7782000" />
-      <workItem from="1583810658383" duration="10046000" />
+      <workItem from="1583810658383" duration="10795000" />
     </task>
     <servers />
   </component>
