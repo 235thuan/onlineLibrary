@@ -26,10 +26,20 @@
             </tr>
             <tr>
                 <td>Phone :</td>
-                <td><input type="number" id="phone"
+                <td><input type="number"
                            th:field="*{phone}"/></td>
             </tr>
-
+            <tr>
+                <td>Password :</td>
+                <td><input type="text"
+                           th:field="*{password}"/></td>
+            </tr>
+            <tr>
+                <select th:field="*{role}">
+                    <option value="GUEST">GUEST</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
+            </tr>
             <tr>
                 <td></td>
                 <td><input type="submit" value="Create user"></td>

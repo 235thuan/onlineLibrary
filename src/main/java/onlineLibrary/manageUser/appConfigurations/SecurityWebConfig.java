@@ -31,25 +31,11 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
     @Autowired
-    public void configureGlobalSecurity(AuthenticationManagerBuilder auth,
-                                        @RequestParam("s") Optional<String> s)
+    public void configureGlobalSecurity(AuthenticationManagerBuilder auth)
             throws Exception {
-        Pageable pageable = null;
-        Page<User> names;
-        Page<User> passwords;
-        Page<User> roles;
-        if (s.isPresent()) {
-            names = userService.findAllByName(s.get(), pageable);
-            passwords = userService.findAllByPassword(s.get(), pageable);
-            roles = userService.findAllByRole(s.get(), pageable);
-
-            auth.inMemoryAuthentication().
-                    withUser(String.valueOf(names)).
-                    password(String.valueOf(passwords)).
-                    roles(String.valueOf(roles));
-        }
         auth.inMemoryAuthentication().withUser("user").password("123").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN","USER");
+        auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("Thuan").password("123").roles("ADMIN", "USER");
     }
 
     @Override
