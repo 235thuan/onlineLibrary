@@ -7,7 +7,4 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface UserRepository extends PagingAndSortingRepository <User, Long> {
     Page<User> findAllByName(String name, Pageable pageable);
-    Page<User> findAllByPassword(String name, Pageable pageable);
-    Page<User> findAllByRole(String name, Pageable pageable);
-
 }

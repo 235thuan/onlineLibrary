@@ -10,7 +10,10 @@ import org.springframework.data.domain.Pageable;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
-
+    @Override
+    public Iterable<User> findAlls(){
+        return userRepository.findAll();
+    }
     @Override
     public Page<User> findAll(Pageable pageable) {
         return userRepository.findAll(pageable);
@@ -24,14 +27,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<User> findAllByName(String name, Pageable pageable) {
         return userRepository.findAllByName(name, pageable);
-    }
-    @Override
-    public Page<User> findAllByPassword(String password, Pageable pageable) {
-        return userRepository.findAllByPassword(password, pageable);
-    }
-    @Override
-    public Page<User> findAllByRole(String role, Pageable pageable) {
-        return userRepository.findAllByRole(role, pageable);
     }
     @Override
     public void save(User user) {

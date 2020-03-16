@@ -17,6 +17,7 @@ public class User {
     private boolean status;
     private String password;
     private String role;
+    private String account;
 
     public User(Long id,
                 int phone,
@@ -25,6 +26,7 @@ public class User {
                 String address,
                 String password,
                 String role,
+                String account,
                 boolean status) {
         this.id = id;
         this.email = email;
@@ -34,6 +36,7 @@ public class User {
         this.phone = phone;
         this.status = status;
         this.name = name;
+        this.account = account;
     }
 
     public User() {
@@ -103,4 +106,14 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+
 }

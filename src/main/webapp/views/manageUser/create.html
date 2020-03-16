@@ -30,16 +30,15 @@
                            th:field="*{phone}"/></td>
             </tr>
             <tr>
+                <td>Account :</td>
+                <td><input type="text" th:field="*{account}"></td>
+            </tr>
+            <tr>
                 <td>Password :</td>
                 <td><input type="text"
                            th:field="*{password}"/></td>
             </tr>
-            <tr>
-                <select th:field="*{role}">
-                    <option value="GUEST">GUEST</option>
-                    <option value="ADMIN">ADMIN</option>
-                </select>
-            </tr>
+
             <tr>
                 <td></td>
                 <td><input type="submit" value="Create user"></td>
@@ -47,5 +46,6 @@
         </table>
     </form>
 </div>
+<a th:href="@{/}">Exit</a>
 </body>
 </html>

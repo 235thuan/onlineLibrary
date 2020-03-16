@@ -1,5 +1,6 @@
 package onlineLibrary.manageUser.controllers;
 
+import onlineLibrary.manageUser.models.Login;
 import onlineLibrary.manageUser.models.User;
 import onlineLibrary.manageUser.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,10 +19,40 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping(value = {"/", "/home"})
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView(
+                "home", "login", new Login());
+        modelAndView.addObject("user", new User());
+        return modelAndView;
+    }
+
+    @PostMapping("/login")
+    public ModelAndView login(@ModelAttribute  Login login) {
+        boolean isLogin=false;
+        Iterable<User> users = userService.findAlls();
+        for (User user:users) {
+            if(login.getAccount().equals(user.getAccount())&&
+                    login.getPassword().equals(user.getPassword())){
+                isLogin=true;
+                break;
+            }
+        }
+        if(isLogin){
+            ModelAndView modelAndView = new ModelAndView("user");
+            modelAndView.addObject("user", users);
+            return modelAndView;
+        }else{
+            ModelAndView modelAndView = new ModelAndView("error");
+            return modelAndView;
+        }
+
+    }
+
     @GetMapping("/users")
-    public ModelAndView list(@RequestParam("userType") Optional<Long> userType,
-                             @RequestParam("s") Optional<String> s,
-                             @PageableDefault(size = 5) Pageable pageable) {
+    public ModelAndView list(
+            @RequestParam("s") Optional<String> s,
+            @PageableDefault(size = 5) Pageable pageable) {
         Page<User> users;
         if (s.isPresent()) {
             users = userService.

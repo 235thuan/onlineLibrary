@@ -47,7 +47,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     }
 
 
-    @Bean(name="HelloWorld")
+    @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
