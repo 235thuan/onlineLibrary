@@ -28,28 +28,34 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ModelAndView login(@ModelAttribute  Login login) {
-        boolean isLogin=false;
+    public ModelAndView login(@ModelAttribute Login login
+    ) {
+        boolean isLogin = false;
         Iterable<User> users = userService.findAlls();
-        for (User user:users) {
-            if(login.getAccount().equals(user.getAccount())&&
-                    login.getPassword().equals(user.getPassword())){
-                isLogin=true;
+        for (User user : users) {
+            if (login.getAccount().equals(user.getAccount()) &&
+                    login.getPassword().equals(user.getPassword())) {
+                isLogin = true;
+
+                login.setName(user.getName());
+                login.setEmail(user.getEmail());
                 break;
             }
         }
-        if(isLogin){
+        if (isLogin) {
             ModelAndView modelAndView = new ModelAndView("user");
             modelAndView.addObject("user", users);
+            modelAndView.addObject("login", login);
             return modelAndView;
-        }else{
+        } else {
             ModelAndView modelAndView = new ModelAndView("error");
             return modelAndView;
         }
 
     }
 
-    @GetMapping("/users")
+
+    @GetMapping("/list")
     public ModelAndView list(
             @RequestParam("s") Optional<String> s,
             @PageableDefault(size = 5) Pageable pageable) {
@@ -61,7 +67,7 @@ public class UserController {
         } else {
             users = userService.findAll(pageable);
         }
-        ModelAndView modelAndView = new ModelAndView("/login");
+        ModelAndView modelAndView = new ModelAndView("/list");
         modelAndView.addObject("users", users);
         return modelAndView;
     }
@@ -107,9 +113,11 @@ public class UserController {
     }
 
     @PostMapping("/delete-user")
-    public String delete(@ModelAttribute("user") User user) {
+    public ModelAndView delete(@ModelAttribute("user") User user) {
         userService.remove(user.getId());
-        return "redirect:/users";
+        ModelAndView modelAndView = new ModelAndView("/delete", "user", user);
+        modelAndView.addObject("message", "Delete user successfully");
+        return modelAndView;
     }
 
     @GetMapping("/view-user/{id}")

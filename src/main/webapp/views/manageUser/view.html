@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<form th:action="@{/edit-user}" th:object="${user}" method="get">
+    <br><br>
+    <td>
+    <h2>Name: </h2>
+    <h3 th:text="${user.name}"></h3>
+    </td>
+    <br><br>
+    <td>
+    <h2>Account:</h2>
+    <h3 th:text="${user.account}"></h3>
+    </td>
+</form>
+<div>
+    <a th:href="@{/edit-user/__${user.id}__}">
+        <button>Edit</button>
+    </a>
+    <a th:href="@{/delete-user/__${user.id}__}">
+        <button>Delete</button>
+    </a>
+</div>
 </body>
 </html>

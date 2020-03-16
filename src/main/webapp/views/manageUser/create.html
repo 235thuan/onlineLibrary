@@ -7,7 +7,7 @@
 <body>
 <h1>Create user</h1>
 <p>
-    <a href="/users">
+    <a href="/list">
         <button>Userlist</button>
     </a>
 </p>
@@ -37,6 +37,11 @@
                 <td>Password :</td>
                 <td><input type="text"
                            th:field="*{password}"/></td>
+            </tr>
+            <tr>
+                <td>Email :</td>
+                <td><input type="text"
+                           th:field="*{email}"/></td>
             </tr>
 
             <tr>

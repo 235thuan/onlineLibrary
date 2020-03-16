@@ -5,10 +5,15 @@
     <title>User</title>
 </head>
 <body>
+<h2>Profile:</h2>
 
-<h3>Account: </h3>
-<h3>Name: </h3>
-<h3>Email:</h3>
+
+<h3>Account: <a th:text="${login.account}"></a>
+</h3>
+<h3>Name: <a th:text="${login.name}"></a>
+</h3>
+<h3>Email:<a th:text="${login.email}"></a></h3>
 <a href="/create-user">Create User</a>
+<a href="/">Exit</a>
 </body>
 </html>
