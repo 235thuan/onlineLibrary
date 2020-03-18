@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xml:lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <style>
+
+        table, th, td, tr {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<span>
+    <a href="/create-book">
+        <button>New book</button>
+    </a>
+</span>
+
+<span>
+<a href="/bookTypes">
+    <button>BookType</button>
+</a>
+</span>
+
+<h1>Book</h1>
+
+<div>
+    <form>
+        <label for="s"></label><input id="s" name="s" type="text"/>
+        <input type="submit" value="Search"/>
+    </form>
+    <br>
+</div>
+
+<div>
+    <form>
+        <select>
+            <option th:each="bookType :${bookTypes}"
+                    th:value="${bookType.id}"
+                    th:text="${bookType.name}"></option>
+        </select>
+    </form>
+</div>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>BookType</th>
+        <th>Actions</th>
+    </tr>
+
+    <th:block th:each="book : ${books}">
+        <tr>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.bookType.name}"></td>
+            <td>
+                <a th:href="@{/edit-book/__${book.id}__}">Modify</a>
+                <a th:href="@{/delete-book/__${book.id}__}">Delete</a>
+                <a th:href="@{/view-book/__${book.id}__}">View</a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+<div>
+
+    <a th:href="@{'/books'(page=${books.number - 1})}" th:if="${books.hasPrevious()}">Previous</a>
+
+    <span th:text="${books.number + 1}"></span>
+    <span th:text="${books.totalPages}"></span>
+    <a th:href="@{'/books'(page=${books.number + 1})}" th:if="${books.hasNext()}">Next</a>
+</div>
+
+<a href="/list">List User</a>
+<br>
+<a th:href="@{/login}">Login</a>
+</body>
+</html>

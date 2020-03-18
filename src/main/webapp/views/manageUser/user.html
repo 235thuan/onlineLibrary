@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>User</title>
+
 </head>
 <body>
 <h2>Profile:</h2>
@@ -13,7 +14,7 @@
 <h3>Name: <a th:text="${login.name}"></a>
 </h3>
 <h3>Email:<a th:text="${login.email}"></a></h3>
-<a href="/create-user">Create User</a>
-<a href="/">Exit</a>
+<br>
+<a th:href="@{/book}">Book</a>
 </body>
 </html>
