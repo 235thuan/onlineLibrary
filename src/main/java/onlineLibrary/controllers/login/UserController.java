@@ -46,7 +46,7 @@ public class UserController {
             modelAndView.addObject("login", login);
             return modelAndView;
         } else {
-            ModelAndView modelAndView = new ModelAndView("error");
+            ModelAndView modelAndView = new ModelAndView("manageUser/error");
             return modelAndView;
         }
 
